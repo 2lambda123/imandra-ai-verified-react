@@ -42,7 +42,7 @@ let square_state_of_json = j =>
   | `Null => None
   | `String("X") => Some(X)
   | `String("O") => Some(O)
-  | _ => None
+  | _ => failwith("Invalid square state JSON data")
   };
 
 [@program]
@@ -100,7 +100,7 @@ let game_state_of_json = j =>
       }
     | _ => failwith("game_state: json missing property")
     };
-  | _ => failwith("game_state: Unexpected pattern match in JSON data for game_state")
+  | _ => failwith("Invalid game state JSON data")
   };
 
 [@program]
