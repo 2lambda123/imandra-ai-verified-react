@@ -33,7 +33,7 @@ module App = {
     render: _self =>
       <InstanceBrowser
         serverInfo=Imandra_client.Server_info.{url: "http://localhost:3000"}
-        setupScriptPath="examples/tictactoe/TicTacToe_Setup.ire"
+        setupScriptPath="examples/tictactoe/TicTacToe_Setup.ml"
         instanceType="game_state"
         instancePrinterFn="game_state_to_json_pp"
         examples=[
@@ -74,7 +74,7 @@ module App = {
                  )}
                 <a
                   className="instance__subtitle--link"
-                  href="https://github.com/AestheticIntegration/verified-react/blob/master/examples/tictactoe/TicTacToe_Logic.ire">
+                  href="https://github.com/AestheticIntegration/verified-react/blob/master/examples/tictactoe/TicTacToe_Logic.ml">
                   {ReasonReact.string("the source code of the game logic")}
                 </a>
                 {ReasonReact.string(" which has been loaded into Imandra.")}

@@ -2,6 +2,8 @@
 
 open Imandra_prelude;;
 
+module TicTacToe_Logic
+
 (* start generated code here *)
 
 #1 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"

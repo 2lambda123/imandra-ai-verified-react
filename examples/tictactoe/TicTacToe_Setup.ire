@@ -1,5 +1,5 @@
 [@redef "true"];
-[@use "examples/tictactoe/TicTacToe_Logic.ire"];
+[@use "examples/tictactoe/TicTacToe_Logic.ml"];
 
 [@program]
 let player_to_json = p =>
