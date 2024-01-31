@@ -10,7 +10,8 @@ For an overview, read our Medium post [Introducing Verified React](https://mediu
 
 ## Ideas, aims and progress so far
 
-- [x] Stage 1  (Counter, TicTacToe)
+- [x] Stage 1 (Counter, TicTacToe)
+
   - [x] Simpler automation of Imandra:
     - added `imandra-http-server` as an alternative to `imandra-repl` to allow automation via an HTTP api, bundled with the [Imandra installer](https://docs.imandra.ai/imandra-docs/notebooks/installation-simple/). Previously you could automate our `imandra-repl` process via stdin/stdout, but having an HTTP interface to the Imandra client naturally makes life a lot easier. `imandra-http-server` is built using our `Imandra_client` OCaml library, which we're hoping to make available as an `opam` package in the future, so OCaml users can use the Imandra client directly from their code.
     - added [`bs-imandra-client`](https://github.com/AestheticIntegration/bs-imandra-client) - bucklescript bindings to that HTTP api to be used when running on Node
@@ -24,14 +25,15 @@ For an overview, read our Medium post [Introducing Verified React](https://mediu
     - `examples/tictactoe/TicTacToe.re`
 
 - [x] Stage 2
+
   - [x] [Viewing instances](#viewing-instances) - also see [our blog post](https://medium.com/imandra/constraint-solving-your-uis-8933f4cf8927)
   - [x] TodoMVC as a larger example
   - [ ] Decomposition visualisation
 
--  [ ] Stage 3
-  - [ ] Collecting React reducer events from React unit test runs
-  - [ ] Map reducer events back to state machine events, and visualise coverage on the decomposition
-  - [ ] Coverage report of state space as hit by your jest tests
+- [ ] Stage 3
+- [ ] Collecting React reducer events from React unit test runs
+- [ ] Map reducer events back to state machine events, and visualise coverage on the decomposition
+- [ ] Coverage report of state space as hit by your jest tests
 
 ## Setup
 
@@ -75,7 +77,7 @@ To run the verification goals, execute the following command:
 
 - To start the Imandra HTTP server with `reason` syntax loaded, run the following command from the `verified-react` repo root:
 
-    imandra-http-server -reason
+  imandra-http-server -reason
 
 to start Imandra's http server with `reason` syntax loaded. Then for bucklescript compilation, (in another terminal) run:
 
@@ -93,6 +95,7 @@ Then, to start the parcel.js dev server, (in another terminal) run:
 The TicTacToe UI is [wrapped in an InstanceBrowser component](./examples/tictactoe/Index.re), which loads the game logic into Imandra (along with some JSON encoders and decoders) via [`examples/tictactoe/Setup.ire`](examples/tictactoe/Setup.ire).
 
 The TicTacToe UI component has been edited slightly to allow a default intial state to be passed from its parent via the `customInitialLogicState` prop.
+
 ## Running Tests
 
 To run the verification goals, execute the following command:
