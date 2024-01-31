@@ -42,7 +42,7 @@ let square_state_of_json = j =>
   | `Null => None
   | `String("X") => Some(X)
   | `String("O") => Some(O)
-  | _ => failwith("square_state: unexpected value")
+  | _ => None
   };
 
 [@program]
