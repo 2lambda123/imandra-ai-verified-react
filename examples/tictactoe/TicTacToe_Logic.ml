@@ -9,8 +9,8 @@ module TicTacToe_Logic
 #1 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"
 
 type player =
-  | X 
-  | O 
+  | X
+  | O
 #5 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"
 
 type square_state = player option
@@ -44,15 +44,15 @@ let a_grid =
 #31 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"
 
 type move =
-  | A 
-  | B 
-  | C 
-  | D 
-  | E 
-  | F 
-  | G 
-  | H 
-  | I 
+  | A
+  | B
+  | C
+  | D
+  | E
+  | F
+  | G
+  | H
+  | I
 #42 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"
 
 type game_state = {
@@ -61,10 +61,10 @@ type game_state = {
 #47 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"
 
 type game_status =
-  | Won of player 
-  | InProgress 
-  | InvalidMove of move 
-  | Tied 
+  | Won of player
+  | InProgress
+  | InvalidMove of move
+  | Tied
 #53 "/Users/dave/dev/ai/verified-react/examples/tictactoe/TicTacToe_Logic.ire"
 
 let initial_game =
@@ -208,4 +208,3 @@ let play ({ last_player;_} as game) move =
 let goal_game_progression game player move =
   ((is_valid_game game) && (is_valid_move game player move)) ==>
     (is_valid_game (play_move game player move))
-
