@@ -103,4 +103,5 @@ let game_state_of_json = j =>
 
 [@program]
 let game_state_to_json_pp = gs =>
+  Js.Json.stringify(game_state_to_json(gs));
   Yojson.Basic.to_string(game_state_to_json(gs));
