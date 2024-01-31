@@ -42,12 +42,14 @@ let square_state_of_json = j =>
   | `Null => None
   | `String("X") => Some(X)
   | `String("O") => Some(O)
-  | _ => failwith("square_state: unexpected value")
+  | _ => failwith("Invalid square state JSON data")
   };
 
 [@program]
 let grid_of_json = j =>
   switch (j) {
+  | `Null => failwith("grid: json not an object")
+  | `Assoc(l) =>
   | `Assoc(l) =>
     let a = List.assoc("a", l);
     let b = List.assoc("b", l);
@@ -80,7 +82,7 @@ let grid_of_json = j =>
         h,
         i,
       }
-    | _ => failwith("grid: json missing property")
+    | _ => failwith("grid: Unexpected pattern match in JSON data for grid")
     };
   | _ => failwith("grid: json not an object")
   };
@@ -98,7 +100,7 @@ let game_state_of_json = j =>
       }
     | _ => failwith("game_state: json missing property")
     };
-  | _ => failwith("game_state: json not an object")
+  | _ => failwith("Invalid game state JSON data")
   };
 
 [@program]
