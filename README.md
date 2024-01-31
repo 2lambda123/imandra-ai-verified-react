@@ -63,9 +63,9 @@ For runtime:
 - Tests are run via Jest on node.js using the compiled runtime JS files.
 - As part of the test run, the Imandra client bucklescript bindings (`bs-imandra-client`) are used to spin up `imandra-http-server` (which is bundled as part of the [Imandra Installer](https://docs.imandra.ai/imandra-docs/notebooks/installation/)), which is an OCaml binary talking to Imandra's reasoning engine in the cloud.
 - The HTTP Imandra client API is used to load `.iml` and `.ire` files into the running `imandra-http-server` OCaml process, and perform verification statements.
-- The verification results are captured and reported back as part of the Jest test run.
+- The verification results are obtained by using Imandra client bucklescript bindings to spin up imandra-http-server. The HTTP Imandra client API is then used to load .iml and .ire files into the running imandra-http-server OCaml process, and perform verification statements. The verification results are then captured and reported back as part of the Jest test run.
 
-To run the verification goals:
+To run the verification goals, execute the following command:
 
     npm run test
 
