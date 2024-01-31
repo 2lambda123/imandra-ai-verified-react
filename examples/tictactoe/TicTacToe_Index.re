@@ -45,43 +45,47 @@ module App = {
           "is_valid_game(x) && status(x) == Tied",
           "true",
         ]
-        body={instanceJson => {
-          let instance =
-            switch (instanceJson) {
-            | None => None
-            | Some(j) =>
-              let game = game_state_of_json(j);
-              Some({
-                TicTacToe.game,
-                TicTacToe.status: TicTacToe_Logic.status(game),
-              });
-            };
+        body={
+          instanceJson => {
+            let instance =
+              switch (instanceJson) {
+              | None => None
+              | Some(j) =>
+                let game = game_state_of_json(j);
+                Some({
+                  TicTacToe.game,
+                  TicTacToe.status: TicTacToe_Logic.status(game),
+                });
+              };
 
-          <div className="instance">
-            <h1 className="instance__title">
-              {ReasonReact.string("Tic Tac Toe")}
-            </h1>
-            <section className="tictactoe">
-              <TicTacToe
-                onGameFinished={() => ()}
-                customInitialLogicState=instance
-              />
-            </section>
-            <div className="instance__description">
-              <h2 className="instance__subtitle">
-                {ReasonReact.string(
-                   "Generate instances of TicTacToe based purely on ",
-                 )}
-                <a
-                  className="instance__subtitle--link"
-                  href="https://github.com/AestheticIntegration/verified-react/blob/master/examples/tictactoe/TicTacToe_Logic.ml">
-                  {ReasonReact.string("the source code of the game logic")}
-                </a>
-                {ReasonReact.string(" which has been loaded into Imandra.")}
-              </h2>
-            </div>
-          </div>;
-        }}
+            <div className="instance">
+              <h1 className="instance__title">
+                {ReasonReact.string("Tic Tac Toe")}
+              </h1>
+              <section className="tictactoe">
+                <TicTacToe
+                  onGameFinished={() => ()}
+                  customInitialLogicState=instance
+                />
+              </section>
+              <div className="instance__description">
+                <h2 className="instance__subtitle">
+                  {
+                    ReasonReact.string(
+                      "Generate instances of TicTacToe based purely on ",
+                    )
+                  }
+                  <a
+                    className="instance__subtitle--link"
+                    href="https://github.com/AestheticIntegration/verified-react/blob/master/examples/tictactoe/TicTacToe_Logic.ml">
+                    {ReasonReact.string("the source code of the game logic")}
+                  </a>
+                  {ReasonReact.string(" which has been loaded into Imandra.")}
+                </h2>
+              </div>
+            </div>;
+          }
+        }
       />,
   };
 };
