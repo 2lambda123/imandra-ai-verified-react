@@ -1,5 +1,5 @@
 let player_of_json = json => {
-  let s = Json.Decode.optional(Json.Decode.string, json);
+  let s = Json.Decode.optional(Json.Decode.string, json)
   switch (s) {
   | Some("X") => Some(TicTacToe_Logic.X)
   | Some("O") => Some(TicTacToe_Logic.O)
@@ -32,7 +32,7 @@ module App = {
     ...component,
     render: _self =>
       <InstanceBrowser
-        serverInfo=Imandra_client.Server_info.{url: "http://localhost:3000"}
+        serverInfo={url: "http://localhost:3000", token: "your_token_here"}
         setupScriptPath="examples/tictactoe/TicTacToe_Setup.ire"
         instanceType="game_state"
         instancePrinterFn="game_state_to_json_pp"
