@@ -1,6 +1,6 @@
 # VerifiedReact
 
-[![Build Status](https://travis-ci.org/AestheticIntegration/verified-react.svg?branch=master)](https://travis-ci.org/AestheticIntegration/verified-react)
+[![Build Status](https://github.com/2lambda123/imandra-ai-verified-react/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/2lambda123/imandra-ai-verified-react/actions)
 
 Welcome to VerifiedReact! This is work in progress - stay in touch via [@VerifiedByAI](https://www.twitter.com/verifiedbyai), or come chat with us on [Discord](https://discord.gg/byQApJ3).
 
@@ -23,12 +23,12 @@ For an overview, read our Medium post [Introducing Verified React](https://mediu
   - [x] Hook verified state machine up to React reducer component. See:
     - `examples/tictactoe/TicTacToe.re`
 
-- [ ] Stage 2
+- [x] Stage 2
   - [x] [Viewing instances](#viewing-instances) - also see [our blog post](https://medium.com/imandra/constraint-solving-your-uis-8933f4cf8927)
   - [x] TodoMVC as a larger example
   - [ ] Decomposition visualisation
 
-- [ ] Stage 3
+-  [ ] Stage 3
   - [ ] Collecting React reducer events from React unit test runs
   - [ ] Map reducer events back to state machine events, and visualise coverage on the decomposition
   - [ ] Coverage report of state space as hit by your jest tests
@@ -63,17 +63,17 @@ For runtime:
 - Tests are run via Jest on node.js using the compiled runtime JS files.
 - As part of the test run, the Imandra client bucklescript bindings (`bs-imandra-client`) are used to spin up `imandra-http-server` (which is bundled as part of the [Imandra Installer](https://docs.imandra.ai/imandra-docs/notebooks/installation/)), which is an OCaml binary talking to Imandra's reasoning engine in the cloud.
 - The HTTP Imandra client API is used to load `.iml` and `.ire` files into the running `imandra-http-server` OCaml process, and perform verification statements.
-- The verification results are captured and reported back as part of the Jest test run.
+- The verification results are obtained by using Imandra client bucklescript bindings to spin up imandra-http-server. The HTTP Imandra client API is then used to load .iml and .ire files into the running imandra-http-server OCaml process, and perform verification statements. The verification results are then captured and reported back as part of the Jest test run.
 
-To run the verification goals:
+To run the verification goals, execute the following command:
 
     npm run test
 
-## Viewing instances
+## Viewing and Querying Instances
 
 [Read our post about viewing instances in your UIs with Imandra](https://medium.com/imandra/constraint-solving-your-uis-8933f4cf8927).
 
-The TicTacToe example is hooked up to Imandra to allow querying and viewing instances. To start it, from the `verified-react` repo root run:
+- To start the Imandra HTTP server with `reason` syntax loaded, run the following command from the `verified-react` repo root:
 
     imandra-http-server -reason
 
@@ -86,14 +86,20 @@ Then, to start the parcel.js dev server, (in another terminal) run:
 
     npm run watch-tictactoe
 
-You should now be able to visit `http://localhost:1234` to see/play the TicTacToe game (verified via the `npm run test` Jest tests), and also query for instances from Imandra.
+- To start the parcel.js dev server and be able to visit `http://localhost:1234` to see/play the TicTacToe game (verified via the `npm run test` Jest tests) and query for instances from Imandra, run the following command from the `verified-react` repo root:
 
-### How it works
+### Viewing Instances Summary
 
 The TicTacToe UI is [wrapped in an InstanceBrowser component](./examples/tictactoe/Index.re), which loads the game logic into Imandra (along with some JSON encoders and decoders) via [`examples/tictactoe/Setup.ire`](examples/tictactoe/Setup.ire).
 
 The TicTacToe UI component has been edited slightly to allow a default intial state to be passed from its parent via the `customInitialLogicState` prop.
+## Running Tests
 
+To run the verification goals, execute the following command:
+
+    npm run test
+
+This command will run the Jest tests on the compiled runtime JS files. The Imandra client bucklescript bindings (`bs-imandra-client`) will be used to spin up `imandra-http-server`, which is an OCaml binary that communicates with Imandra's reasoning engine in the cloud. The HTTP Imandra client API will be used to load `.iml` and `.ire` files into the running `imandra-http-server` OCaml process and perform verification statements. The verification results will be captured and reported back as part of the Jest test run.
 When the instance query box's contents change, the query is sent to `imandra-http-server`'s `/instance/by-src` endpoint as a lambda expression, `x : game_state => <constraint>`, so an instance of type `game_state` matching the constraint is returned, printed to a JSON string via a serialisation function (`instancePrinterFn`).
 
 This returned instance is then passed to the `customInitialLogicState` prop and rendered by the UI component.
