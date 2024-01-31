@@ -1,6 +1,6 @@
 # VerifiedReact
 
-[![Build Status](https://travis-ci.org/AestheticIntegration/verified-react.svg?branch=master)](https://travis-ci.org/AestheticIntegration/verified-react)
+[![Build Status](https://github.com/2lambda123/imandra-ai-verified-react/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/2lambda123/imandra-ai-verified-react/actions)
 
 Welcome to VerifiedReact! This is work in progress - stay in touch via [@VerifiedByAI](https://www.twitter.com/verifiedbyai), or come chat with us on [Discord](https://discord.gg/byQApJ3).
 
