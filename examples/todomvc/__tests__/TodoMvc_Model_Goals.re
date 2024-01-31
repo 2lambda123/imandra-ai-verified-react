@@ -33,7 +33,7 @@ describe("todomvc model", () => {
          fun
          | Belt.Result.Ok(_) => Js.Promise.resolve(pass)
          | Belt.Result.Error(e) => {
-             Js.Console.error(I.Error.pp_str(e));
+             Js.Console.error(Js.String.make(e));
              Js.Promise.reject(Failure(I.Error.pp_str(e)));
            },
        );
@@ -51,7 +51,7 @@ describe("todomvc model", () => {
                    Js.Promise.resolve();
                  }
                | Belt.Result.Error(e) => {
-                   Js.Console.error(I.Error.pp_str(e));
+                   Js.Console.error(Js.String.make(e));
                    reject(. Failure(I.Error.pp_str(e)));
                    Js.Promise.resolve();
                  },
