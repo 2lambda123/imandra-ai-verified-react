@@ -23,7 +23,7 @@ For an overview, read our Medium post [Introducing Verified React](https://mediu
   - [x] Hook verified state machine up to React reducer component. See:
     - `examples/tictactoe/TicTacToe.re`
 
-- [ ] Stage 2
+- [x] Stage 2
   - [x] [Viewing instances](#viewing-instances) - also see [our blog post](https://medium.com/imandra/constraint-solving-your-uis-8933f4cf8927)
   - [x] TodoMVC as a larger example
   - [ ] Decomposition visualisation
