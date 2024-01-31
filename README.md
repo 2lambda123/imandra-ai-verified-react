@@ -69,7 +69,7 @@ To run the verification goals, execute the following command:
 
     npm run test
 
-## Viewing instances
+## Viewing and Querying Instances
 
 [Read our post about viewing instances in your UIs with Imandra](https://medium.com/imandra/constraint-solving-your-uis-8933f4cf8927).
 
@@ -88,7 +88,7 @@ Then, to start the parcel.js dev server, (in another terminal) run:
 
 You should now be able to visit `http://localhost:1234` to see/play the TicTacToe game (verified via the `npm run test` Jest tests), and also query for instances from Imandra.
 
-### How it works
+### Viewing Instances Summary
 
 The TicTacToe UI is [wrapped in an InstanceBrowser component](./examples/tictactoe/Index.re), which loads the game logic into Imandra (along with some JSON encoders and decoders) via [`examples/tictactoe/Setup.ire`](examples/tictactoe/Setup.ire).
 
