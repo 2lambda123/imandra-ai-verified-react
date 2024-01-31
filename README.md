@@ -28,7 +28,7 @@ For an overview, read our Medium post [Introducing Verified React](https://mediu
   - [x] TodoMVC as a larger example
   - [ ] Decomposition visualisation
 
-- [ ] Stage 3
+-  [ ] Stage 3
   - [ ] Collecting React reducer events from React unit test runs
   - [ ] Map reducer events back to state machine events, and visualise coverage on the decomposition
   - [ ] Coverage report of state space as hit by your jest tests
