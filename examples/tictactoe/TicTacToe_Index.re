@@ -48,7 +48,7 @@ module App = {
         body={instanceJson => {
           let instance =
             switch (instanceJson) {
-            | None => None
+            | _ => None
             | Some(j) =>
               let game = game_state_of_json(j);
               Some({
