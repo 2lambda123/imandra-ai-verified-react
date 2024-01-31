@@ -73,7 +73,7 @@ To run the verification goals, execute the following command:
 
 [Read our post about viewing instances in your UIs with Imandra](https://medium.com/imandra/constraint-solving-your-uis-8933f4cf8927).
 
-The TicTacToe example is hooked up to Imandra to allow querying and viewing instances. To start it, from the `verified-react` repo root run:
+- To start the Imandra HTTP server with `reason` syntax loaded, run the following command from the `verified-react` repo root:
 
     imandra-http-server -reason
 
@@ -86,7 +86,7 @@ Then, to start the parcel.js dev server, (in another terminal) run:
 
     npm run watch-tictactoe
 
-You should now be able to visit `http://localhost:1234` to see/play the TicTacToe game (verified via the `npm run test` Jest tests), and also query for instances from Imandra.
+- To start the parcel.js dev server and be able to visit `http://localhost:1234` to see/play the TicTacToe game (verified via the `npm run test` Jest tests) and query for instances from Imandra, run the following command from the `verified-react` repo root:
 
 ### Viewing Instances Summary
 
