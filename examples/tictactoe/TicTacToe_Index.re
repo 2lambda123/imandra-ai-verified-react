@@ -3,7 +3,7 @@ let player_of_json = json => {
   switch (s) {
   | Some("X") => Some(TicTacToe_Logic.X)
   | Some("O") => Some(TicTacToe_Logic.O)
-  | _ => Some(TicTacToe_Logic.X)
+  | _ => None
   };
 };
 
