@@ -84,7 +84,7 @@ to start Imandra's http server with `reason` syntax loaded. Then for bucklescrip
 
 Then, to start the parcel.js dev server, (in another terminal) run:
 
-    npm run watch-tictactoe
+    npm run dev
 
 - To start the parcel.js dev server and be able to visit `http://localhost:1234` to see/play the TicTacToe game (verified via the `npm run test` Jest tests) and query for instances from Imandra, run the following command from the `verified-react` repo root:
 
@@ -97,7 +97,7 @@ The TicTacToe UI component has been edited slightly to allow a default intial st
 
 To run the verification goals, execute the following command:
 
-    npm run test
+    npm run dev
 
 This command will run the Jest tests on the compiled runtime JS files. The Imandra client bucklescript bindings (`bs-imandra-client`) will be used to spin up `imandra-http-server`, which is an OCaml binary that communicates with Imandra's reasoning engine in the cloud. The HTTP Imandra client API will be used to load `.iml` and `.ire` files into the running `imandra-http-server` OCaml process and perform verification statements. The verification results will be captured and reported back as part of the Jest test run.
 When the instance query box's contents change, the query is sent to `imandra-http-server`'s `/instance/by-src` endpoint as a lambda expression, `x : game_state => <constraint>`, so an instance of type `game_state` matching the constraint is returned, printed to a JSON string via a serialisation function (`instancePrinterFn`).

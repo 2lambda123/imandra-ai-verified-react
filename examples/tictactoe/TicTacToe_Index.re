@@ -32,7 +32,7 @@ module App = {
     ...component,
     render: _self =>
       <InstanceBrowser
-        serverInfo=Imandra_client.Server_info.{url: "http://localhost:3000"}
+        serverInfo=Imandra_client.Server_info.{url: "http://localhost:1234"}
         setupScriptPath="examples/tictactoe/TicTacToe_Setup.ml"
         instanceType="game_state"
         instancePrinterFn="game_state_to_json_pp"
